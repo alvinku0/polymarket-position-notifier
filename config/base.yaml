@@ -1,0 +1,28 @@
+# Base configuration for Polymarket Position Notifier
+# Environment variables can override these values using ${VAR_NAME} syntax
+
+polymarket:
+  # Polymarket API configuration
+  private_key: "${PRIVATE_KEY}"  # Required: Your private key for authentication
+  proxy_address: "${POLYMARKET_PROXY_ADDRESS:-}"  # Optional: Polymarket proxy contract address
+  signature_type: "${SIGNATURE_TYPE:-}"  # Optional: Signature type
+
+discord:
+  # Discord notification configuration
+  webhook_url: "${DISCORD_WEBHOOK_URL}"  # Required: Discord webhook URL for notifications
+
+application:
+  # Application behavior settings
+  fetch_frequency_seconds: 60
+  send_to_discord: true
+
+database:
+  # MongoDB configuration
+  mongo_url: "${MONGO_URL:-mongodb://localhost:27017}"
+  db_name: "${MONGO_DB_NAME:-polymarket_notifications}"
+
+logging:
+  # Logging configuration
+  level: "INFO"
+  file_enabled: true
+  console_enabled: false

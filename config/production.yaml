@@ -1,0 +1,7 @@
+# Production environment overrides
+# This file extends base.yaml for production-specific settings
+
+logging:
+  level: "INFO"
+  file_enabled: true
+  console_enabled: false

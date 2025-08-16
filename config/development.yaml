@@ -1,0 +1,7 @@
+# Development environment overrides
+# This file extends base.yaml for development-specific settings
+
+logging:
+  level: "DEBUG"
+  file_enabled: false
+  console_enabled: true

@@ -1,0 +1,40 @@
+version: "3.8"
+services:
+  mongo:
+    image: mongo:7
+    container_name: polymarket-mongo
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+    networks:
+      - polymarket-network
+
+  notification-service:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    container_name: polymarket-notifier
+    restart: unless-stopped
+    depends_on:
+      - mongo
+    env_file:
+      - .env
+    environment:
+      - MONGO_URL=mongodb://mongo:27017
+      - MONGO_DB_NAME=polymarket_notifications
+    volumes:
+      - ./log:/app/log:rw
+      - ./config:/app/config:ro
+    user: "1000:1000"
+    networks:
+      - polymarket-network
+
+
+volumes:
+  mongo_data:
+
+networks:
+  polymarket-network:
+    driver: bridge

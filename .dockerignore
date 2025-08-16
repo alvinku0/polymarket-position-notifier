@@ -1,0 +1,63 @@
+# Git and version control
+.git
+.gitignore
+
+# Python cache and build artifacts
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Testing
+.pytest_cache/
+.coverage
+.tox/
+htmlcov/
+
+# Environment files
+.env
+.env.local
+.env.production
+
+# Logs will be mounted as volumes
+*.log
+
+# Documentation
+README.md
+*.md
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Docker files
+docker-compose.yml
+.dockerignore
+
+# Virtual environments
+.venv/
+venv/
+
+# UV cache (will be rebuilt in container)
+.uv/
